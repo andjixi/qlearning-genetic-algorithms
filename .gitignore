@@ -1,0 +1,5 @@
+# macOS sistemski fajl
+.DS_Store
+
+# Jupyter checkpoint folder
+.ipynb_checkpoints/
