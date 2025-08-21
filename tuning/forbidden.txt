@@ -9,5 +9,5 @@
 ## then the configuration is discarded.
 ##
 ## Examples of valid logical operators are: ==  !=  >=  <=  >  <  &  |  !  %in%
-kmin >= kmax
-lmin >= lmax
+## kmin >= kmax
+## lmin >= lmax
