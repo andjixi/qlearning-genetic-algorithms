@@ -1,5 +1,14 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 import random
-import argparse
+import matplotlib.pyplot as plt
+
+
+# In[2]:
 
 
 class KnapsackProblem:
@@ -28,7 +37,12 @@ class Individual:
             return -1
 
         return total_value
-    
+
+
+# Crossover definitions
+
+# In[3]:
+
 
 # Crossover Operators
 def arithmetic_crossover(p1, p2, alpha=None):
@@ -48,6 +62,7 @@ def arithmetic_crossover(p1, p2, alpha=None):
     ]
 
     return child1, child2
+
 
 def single_point_crossover(p1, p2):
     point = random.randint(1, len(p1.genotype) - 1)
@@ -93,23 +108,33 @@ def uniform_crossover(p1, p2):
     return child1, child2
 
 
-# Selection operators
+# Selection definitions
+
+# In[4]:
+
+
 def selection(population, tournament_size):
     candidates = random.sample(population, tournament_size)
     return max(candidates, key=lambda ind: ind.fitness)
 
 
-# Mutation Operators
+# Mutation definitions
+
+# In[5]:
+
+
 def bit_flip_mutation(individual, mutation_rate):
     for i in range(len(individual.genotype)):
         if random.random() < mutation_rate:
             individual.genotype[i] = not individual.genotype[i]
     # individual.fitness = individual.evaluate_fitness()
 
+
 def swap_mutation(individual):
     idx1, idx2 = random.sample(range(len(individual.genotype)), 2)
     individual.genotype[idx1], individual.genotype[idx2] = individual.genotype[idx2], individual.genotype[idx1]
     # individual.fitness = individual.evaluate_fitness()
+
 
 def scramble_mutation(individual):
     start, end = sorted(random.sample(range(len(individual.genotype)), 2))
@@ -118,6 +143,8 @@ def scramble_mutation(individual):
     individual.genotype[start:end] = subseq
     # individual.fitness = individual.evaluate_fitness()
 
+
+# In[6]:
 
 
 def genetic_algorithm(
@@ -148,12 +175,12 @@ def genetic_algorithm(
     crossover_func = crossover_ops[crossover_op]
     mutation_func = mutation_ops[mutation_op]
 
-    # # track progress
-    # best_per_gen = []
+    # track progress
+    best_per_gen = []
 
-    for _ in range(generations):
+    for gen in range(generations):
         population.sort(key=lambda ind: ind.fitness, reverse=True)
-        # best_per_gen.append(population[0].fitness)
+        best_per_gen.append(population[0].fitness)
 
         new_population = population[:elitism_size]
 
@@ -172,10 +199,41 @@ def genetic_algorithm(
 
         population = new_population[:population_size]
 
-    return max(population, key=lambda ind: ind.fitness)
-    # best_ind = max(population, key=lambda ind: ind.fitness)
+    # return max(population, key=lambda ind: ind.fitness)
+    best_ind = max(population, key=lambda ind: ind.fitness)
 
-    # return best_ind, best_per_gen
+    return best_ind, best_per_gen
+
+
+# In[7]:
+
+
+weights = [12, 2, 1, 1, 4]
+values =  [4, 2, 2, 1, 10]
+capacity = 15
+
+problem = KnapsackProblem(weights, values, capacity)
+
+best, progress = genetic_algorithm(
+    problem=problem,
+    population_size=150,
+    generations=50,
+    mutation_rate=0.05,
+    crossover_op='arithmetic',
+    mutation_op='scramble',
+)
+
+print("Best genotype:", best.genotype)
+print("Best fitness (value):", best.fitness)
+
+plt.plot(progress)
+plt.xlabel("generation")
+plt.ylabel("best fitness")
+plt.title("GA progress during evolution")
+plt.show()
+
+
+# In[8]:
 
 
 def load_kplib_instance(path):
@@ -196,6 +254,38 @@ def load_kplib_instance(path):
     return weights, values, capacity
 
 
+# In[9]:
+
+
+instance_path = "../instances/n00500_R01000_s000.kp" 
+weights, values, capacity = load_kplib_instance(instance_path)
+
+problem = KnapsackProblem(weights, values, capacity)
+
+best, progress = genetic_algorithm(
+    problem=problem,
+    population_size=150,
+    generations=300,
+    mutation_rate=0.05,
+    crossover_op='arithmetic',
+    mutation_op='bit_flip',
+)
+
+print("Best genotype:", best.genotype)
+print("Best fitness (value):", best.fitness)
+
+plt.plot(progress)
+plt.xlabel("generation")
+plt.ylabel("best fitness")
+plt.title("GA progress during evolution")
+plt.show()
+
+
+# In[ ]:
+
+import argparse
+import random
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--instance', type=str, required=True)
@@ -205,24 +295,22 @@ def main():
     parser.add_argument('--mutation_rate', type=float, default=0.05)
     parser.add_argument('--crossover_op', type=str, default='single_point')
     parser.add_argument('--mutation_op', type=str, default='bit_flip')
-    parser.add_argument('--elitism_size', type=int, default=2)
-    parser.add_argument('--tournament_size', type=int, default=3)
     args = parser.parse_args()
 
     random.seed(args.seed)
     weights, values, capacity = load_kplib_instance(args.instance)
     problem = KnapsackProblem(weights, values, capacity)
-    best = genetic_algorithm(
+    best, _ = genetic_algorithm(
         problem=problem,
         population_size=args.population_size,
         generations=args.generations,
         mutation_rate=args.mutation_rate,
         crossover_op=args.crossover_op,
-        mutation_op=args.mutation_op,
-        elitism_size=args.elitism_size,
-        tournament_size=args.tournament_size
+        mutation_op=args.mutation_op
     )
     print(best.fitness)
 
 if __name__ == "__main__":
     main()
+
+
