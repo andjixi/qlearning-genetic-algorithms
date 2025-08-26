@@ -1,0 +1,3 @@
+load("/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/tuning/result/irace.Rdata")
+load("/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/tuning/result/irace.Rdata")
+source("../start.r")

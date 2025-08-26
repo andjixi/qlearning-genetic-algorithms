@@ -33,16 +33,18 @@ if len(sys.argv) < 5:
     sys.exit(1)
 
 script_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../src"))
-ga_script = os.path.join(script_dir, "geneticAlgorithm.py")
+# ga_script = os.path.join(script_dir, "geneticAlgorithm.py")
+ga_script = os.path.join(script_dir, "main.py")
+
 
 config_id = sys.argv[1]
 instance_id = sys.argv[2]
 seed = sys.argv[3]
 instance_path = sys.argv[4]
-# conf_params = sys.argv[5:]
+conf_params = sys.argv[5:]
 
-bound_max = int(sys.argv[5])
-conf_params = sys.argv[6:]
+# bound_max = int(sys.argv[5])
+# conf_params = sys.argv[6:]
 
 population_size = conf_params[0]
 generations = conf_params[1]
@@ -81,7 +83,9 @@ import signal
 
 
 with open(out_file, "w") as outf, open(err_file, "w") as errf:
-    return_code = subprocess.call(command, stdout=outf, stderr=errf, timeout=bound_max)
+    # return_code = subprocess.call(command, stdout=outf, stderr=errf, timeout=bound_max)
+    return_code = subprocess.call(command, stdout=outf, stderr=errf)
+
 
 
 if return_code != 0:

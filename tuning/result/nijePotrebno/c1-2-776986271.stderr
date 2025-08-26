@@ -1,9 +1,0 @@
-usage: geneticAlgorithm.py [-h] --instance INSTANCE --seed SEED
-                           [--population_size POPULATION_SIZE]
-                           [--generations GENERATIONS]
-                           [--mutation_rate MUTATION_RATE]
-                           [--crossover_op CROSSOVER_OP]
-                           [--mutation_op MUTATION_OP]
-                           [--elitism_size ELITISM_SIZE]
-                           [--tournament_size TOURNAMENT_SIZE]
-geneticAlgorithm.py: error: argument --elitism_size: invalid int value: 'bit_flip'

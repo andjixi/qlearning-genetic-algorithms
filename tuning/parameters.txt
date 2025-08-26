@@ -32,10 +32,10 @@
 
 
 # 1:               2:  3: 4:      5:
-population_size    ""  i  (50, 1000)
-generations        ""  i  (50, 300)
+population_size    ""  i  (100, 600)
+generations        ""  i  (60, 800)
 mutation_rate      ""  r  (0.01, 0.2)
-crossover_op       ""  c  (single_point,two_point,uniform,arithmetic)
-mutation_op        ""  c  (bit_flip,swap,scramble)
+crossover_op       ""  c  (single_point, two_point, uniform, arithmetic)
+mutation_op        ""  c  (bit_flip, swap, scramble)
 elitism_size       ""  i  (1, 5)
 tournament_size    ""  i  (2, 5)

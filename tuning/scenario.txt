@@ -173,7 +173,7 @@ nbIterations = 3
 # testIterationElites = 0
 
 ## Enable/disable elitist irace.
-elitist = 1
+# elitist = 1
 
 ## Number of instances added to the execution list before previous
 ## instances in elitist irace.
@@ -190,7 +190,7 @@ elitist = 1
 ## Enable the use of adaptive capping, a technique designed for minimizing
 ## the computation time of configurations. This is only available when
 ## elitist is active.
-capping = 1
+# capping = 1
 
 ## Measure used to obtain the execution bound from the performance of the
 ## elite configurations: median, mean, worst, best.
@@ -202,7 +202,7 @@ capping = 1
 
 ## Maximum execution bound for targetRunner. It must be specified when
 ## capping is enabled.
-boundMax = 120
+# boundMax = 300
 
 ## Precision used for calculating the execution time. It must be specified
 ## when capping is enabled.
