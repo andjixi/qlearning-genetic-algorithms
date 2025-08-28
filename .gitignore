@@ -3,3 +3,4 @@
 
 # Jupyter checkpoint folder
 **/.ipynb_checkpoints/
+**/__pycache__/

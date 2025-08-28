@@ -1,4 +1,2 @@
-setwd("/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/")
-setwd("tuning")
-source("start.r")
+setwd("/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/tuning/")
 source("start.r")
