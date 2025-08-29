@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "d:\vscode\codes\qlearning-genetic-algorithms\src\geneticAlgorithm.py", line 228, in <module>
+    main()
+    ~~~~^^
+  File "d:\vscode\codes\qlearning-genetic-algorithms\src\geneticAlgorithm.py", line 213, in main
+    weights, values, capacity = load_kplib_instance(args.instance)
+                                ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "d:\vscode\codes\qlearning-genetic-algorithms\src\geneticAlgorithm.py", line 182, in load_kplib_instance
+    with open(path, "r") as f:
+         ~~~~^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../instances/n00500_R01000_s000.kp'
