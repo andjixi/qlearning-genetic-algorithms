@@ -10,7 +10,7 @@
 
 ## File that contains the description of the parameters of the target
 ## algorithm.
-parameterFile = "./parameters.txt"
+parameterFile = "./parameters-ga.txt"
 
 ## Directory where the programs will be run.
 execDir = "./result"
@@ -41,7 +41,7 @@ trainInstancesDir = "../instances/test"
 ## File that contains a list of logical expressions that cannot be TRUE
 ## for any evaluated configuration. If empty or NULL, do not use forbidden
 ## expressions.
-## forbiddenFile = "./forbidden.txt"
+# forbiddenFile = "./forbidden.txt"
 
 ## Script called for each configuration that executes the target algorithm
 ## to be tuned. See templates.

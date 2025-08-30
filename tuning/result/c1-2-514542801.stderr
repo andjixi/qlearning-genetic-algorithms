@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/src/main.py", line 46, in <module>
+    from geneticAlgorithm import genetic_algorithm_qlearning  # tvoja Q-learning verzija
+ImportError: cannot import name 'genetic_algorithm_qlearning' from 'geneticAlgorithm' (/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/src/geneticAlgorithm.py)

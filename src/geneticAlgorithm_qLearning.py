@@ -67,7 +67,7 @@ def genetic_algorithm_qlearning(problem, population_size=50, generations=50, tou
     best_so_far = max(population,key=lambda ind: ind.fitness).fitness 
     improved_prev = 0 # indicator if last iteration improved
 
-    action_log = []
+    # action_log = []
 
     for gen in range(generations):
         population.sort(key=lambda ind: ind.fitness, reverse=True)

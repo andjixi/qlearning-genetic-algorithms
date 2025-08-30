@@ -67,19 +67,8 @@ command = [
     "--tournament_size", str(tournament_size)
 ]
 
-
 out_file = f"c{config_id}-{instance_id}-{seed}.stdout"
 err_file = f"c{config_id}-{instance_id}-{seed}.stderr"
-
-
-import signal
-
-# def timeout_handler(signum, frame):
-#     print(bound_max)  # penal ako istekne vreme
-#     sys.exit(0)
-
-# signal.signal(signal.SIGALRM, timeout_handler)
-# signal.alarm(bound_max)
 
 
 with open(out_file, "w") as outf, open(err_file, "w") as errf:

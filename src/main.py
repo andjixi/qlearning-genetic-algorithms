@@ -1,7 +1,7 @@
 import argparse
 from geneticAlgorithmCore import KnapsackProblem, load_kplib_instance
 from geneticAlgorithm import genetic_algorithm
-# from ga_qlearning import genetic_algorithm_qlearning
+from geneticAlgorithm_qLearning import genetic_algorithm_qlearning
 import random
 
 def main():
@@ -30,6 +30,7 @@ def main():
         elitism_size=args.elitism_size,
         tournament_size=args.tournament_size
     )
+    
     print(best.fitness)
 
 if __name__ == "__main__":

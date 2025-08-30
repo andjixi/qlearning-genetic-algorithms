@@ -1,2 +1,6 @@
+setwd()
 setwd("/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/tuning/")
+use_qlearning <- TRUE
+source("start.r")
+source("start.r")
 source("start.r")

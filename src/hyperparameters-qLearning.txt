@@ -1,0 +1,489 @@
+
+R version 4.5.1 (2025-06-13) -- "Great Square Root"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+[R.app GUI 1.82 (8536) x86_64-apple-darwin20]
+
+WARNING: You're using a non-UTF8 locale, therefore only ASCII characters will work.
+Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.
+[History restored from /Users/jelisavetagavrilovic/.Rapp.history]
+
+2025-08-29 19:15:22.380 R[3947:246772] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+> setwd("/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/tuning/")
+> use_qlearning <- TRUE
+> source("start.r")
+==> Pokrećem GA + Q-learning verziju
+# 2025-08-29 19:16:08 CEST: Reading parameter file '/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/tuning/parameters-qLearning.txt'.
+# 2025-08-29 19:16:08 CEST: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 3
+# minNbSurvival: 5
+# nbParameters: 9
+# seed: 896972113
+# confidence level: 0.95
+# budget: 200
+# mu: 5
+# deterministic: FALSE
+
+# 2025-08-29 19:16:08 CEST: Iteration 1 of 3
+# experimentsUsed: 0
+# remainingBudget: 200
+# currentBudget: 66
+# nbConfigurations: 11
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          1|         11|          1|    -234264.0000|         11|00:01:34|   NA|  NA|    NA|
+|x|          2|         11|          3|    -133165.0000|         22|00:02:23|+0.49|0.74|0.3550|
+|x|          3|         11|          3|    -115869.6667|         33|00:04:26|+0.66|0.77|0.2345|
+|x|          4|         11|          3|    -141581.2500|         44|00:09:53|+0.64|0.73|0.3663|
+|-|          5|          3|          3|    -157457.2000|         55|00:01:23|+0.30|0.44|0.4302|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:           3    mean value:     -157457.2000
+Description of the best-so-far configuration:
+  .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+3    3             507         520        0.1893            3               4 0.1983 0.5969        0.2901      0.0265       NA
+
+# 2025-08-29 19:35:49 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+  population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+3             507         520        0.1893            3               4 0.1983 0.5969        0.2901      0.0265
+6             444         452        0.0706            4               5 0.2545 0.6469        0.2338      0.0827
+8             570         317        0.1181            2               4 0.1420 0.7469        0.1213      0.0602
+# 2025-08-29 19:35:49 CEST: Iteration 2 of 3
+# experimentsUsed: 55
+# remainingBudget: 145
+# currentBudget: 72
+# nbConfigurations: 12
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          6|         12|         16|    -1877715.000|         12|00:16:27|   NA|  NA|    NA|
+|x|          5|         12|          3|    -1049129.500|         21|00:01:39|+0.30|0.65|0.0979|
+|x|          3|         12|          3|    -726512.6667|         30|00:04:47|+0.47|0.65|0.0801|
+|x|          1|         12|          3|    -603450.5000|         39|00:01:39|+0.47|0.61|0.1744|
+|-|          2|          7|          3|    -489173.6000|         48|00:02:30|-0.04|0.17|0.7292|
+|=|          4|          7|          3|    -444097.3333|         52|00:03:57|+0.05|0.21|0.7264|
+|=|          7|          7|          3|    -384004.2857|         59|00:01:15|+0.11|0.24|0.6822|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:           3    mean value:     -384004.2857
+Description of the best-so-far configuration:
+  .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+3    3             507         520        0.1893            3               4 0.1983 0.5969        0.2901      0.0265       NA
+
+# 2025-08-29 20:08:06 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+3              507         520        0.1893            3               4 0.1983 0.5969        0.2901      0.0265
+17             305         521        0.0170            2               4 0.1668 0.7847        0.4997      0.0783
+6              444         452        0.0706            4               5 0.2545 0.6469        0.2338      0.0827
+15             502         279        0.0495            1               5 0.3602 0.7144        0.2802      0.0672
+8              570         317        0.1181            2               4 0.1420 0.7469        0.1213      0.0602
+# 2025-08-29 20:08:06 CEST: Iteration 3 of 3
+# experimentsUsed: 114
+# remainingBudget: 86
+# currentBudget: 86
+# nbConfigurations: 15
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          8|         15|          6|    -22110.00000|         15|00:02:39|   NA|  NA|    NA|
+|x|          5|         15|          6|    -121535.5000|         25|00:01:39|+0.08|0.54|0.8953|
+|x|          1|         15|          6|    -159111.6667|         35|00:01:41|+0.04|0.36|0.6096|
+|x|          7|         15|          6|    -125195.2500|         45|00:01:39|+0.14|0.36|0.5750|
+|=|          2|         15|         23|    -106569.4000|         55|00:02:30|+0.06|0.25|0.6916|
+|=|          3|         15|         23|    -102397.1667|         65|00:04:51|+0.05|0.21|0.7298|
+|=|          6|         15|         23|    -355859.4286|         75|00:10:49|-0.01|0.13|0.8112|
+|=|          4|         15|         23|    -338664.7500|         85|00:12:06|+0.05|0.17|0.7932|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          23    mean value:     -338664.7500
+Description of the best-so-far configuration:
+   .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+23   23             586         391        0.1847            3               5 0.1572 0.5698        0.2977      0.0646        3
+
+# 2025-08-29 20:46:03 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+23             586         391        0.1847            3               5 0.1572 0.5698        0.2977      0.0646
+3              507         520        0.1893            3               4 0.1983 0.5969        0.2901      0.0265
+25             401         401        0.1305            5               5 0.3642 0.5903        0.4045      0.0540
+29             499         323        0.0625            2               5 0.2994 0.8842        0.4294      0.0380
+17             305         521        0.0170            2               4 0.1668 0.7847        0.4997      0.0783
+# Total CPU user time: 5303.914, CPU sys time: 35.422, Wall-clock time: 5394.944
+NULL
+> 
+> 
+> 
+> 
+> source("start.r")
+==> Pokrećem GA + Q-learning verziju
+# 2025-08-29 21:12:07 CEST: Reading parameter file '/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/tuning/parameters-qLearning.txt'.
+# 2025-08-29 21:12:07 CEST: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 3
+# minNbSurvival: 5
+# nbParameters: 9
+# seed: 232062620
+# confidence level: 0.95
+# budget: 200
+# mu: 5
+# deterministic: FALSE
+
+# 2025-08-29 21:12:07 CEST: Iteration 1 of 3
+# experimentsUsed: 0
+# remainingBudget: 200
+# currentBudget: 66
+# nbConfigurations: 11
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          1|         11|          8|    -810289.0000|         11|00:03:53|   NA|  NA|    NA|
+|x|          2|         11|          8|    -416199.5000|         22|00:01:22|+0.41|0.70|0.2758|
+|x|          3|         11|          8|    -394116.6667|         33|00:02:11|+0.60|0.73|0.2468|
+|x|          4|         11|          1|    -498877.7500|         44|00:03:51|+0.69|0.77|0.1865|
+|-|          5|          3|          1|    -773975.8000|         55|00:09:00|+0.50|0.60|0.1364|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:           1    mean value:     -773975.8000
+Description of the best-so-far configuration:
+  .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+1    1             479         408        0.1627            5               4 0.3953 0.8083        0.4068       0.065       NA
+
+# 2025-08-29 21:32:26 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+  population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+1             479         408        0.1627            5               4 0.3953 0.8083        0.4068      0.0650
+8             416         475        0.0915            1               5 0.4515 0.7583        0.1255      0.0538
+3             103         543        0.1152            4               3 0.0578 0.7083        0.0693      0.0425
+# 2025-08-29 21:32:26 CEST: Iteration 2 of 3
+# experimentsUsed: 55
+# remainingBudget: 145
+# currentBudget: 72
+# nbConfigurations: 12
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          6|         12|          1|    -234264.0000|         12|00:02:31|   NA|  NA|    NA|
+|x|          1|         12|         15|    -522702.0000|         21|00:05:20|+0.45|0.72|0.7966|
+|x|          3|         12|         15|    -465219.3333|         30|00:02:23|+0.61|0.74|0.6847|
+|x|          5|         12|         15|    -818056.0000|         39|00:08:23|+0.66|0.75|0.5235|
+|-|          2|          7|         15|    -658866.8000|         48|00:01:16|+0.39|0.51|0.2420|
+|-|          4|          3|         15|    -684821.0000|         52|00:02:36|+0.05|0.21|0.3977|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          15    mean value:     -684821.0000
+Description of the best-so-far configuration:
+   .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+15   15             562         552        0.1429            1               5 0.4532 0.5893        0.1403      0.0682        8
+
+# 2025-08-29 21:54:57 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+15             562         552        0.1429            1               5 0.4532 0.5893        0.1403      0.0682
+14             547         423        0.1902            4               4 0.2527 0.5706        0.2819      0.0509
+17             307         372        0.0857            4               5 0.4943 0.6822        0.0825      0.0127
+# 2025-08-29 21:54:57 CEST: Iteration 3 of 3
+# experimentsUsed: 107
+# remainingBudget: 93
+# currentBudget: 93
+# nbConfigurations: 13
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          7|         13|         22|    -320458.0000|         13|00:03:51|   NA|  NA|    NA|
+|x|          6|         13|         22|    -277361.0000|         23|00:01:49|+0.00|0.50|1.0710|
+|x|          1|         13|         22|    -455174.3333|         33|00:07:22|+0.18|0.45|0.9425|
+|x|          3|         13|         15|    -428992.7500|         43|00:04:19|+0.20|0.40|0.8131|
+|-|          5|          8|         15|    -718507.4000|         53|00:15:13|+0.04|0.23|0.5854|
+|=|          4|          8|         15|    -734521.5000|         58|00:03:37|+0.00|0.17|0.6775|
+|=|          2|          8|         15|    -632748.4286|         63|00:01:18|+0.00|0.14|0.5881|
+|=|          8|          8|         15|    -563848.0000|         71|00:05:40|+0.09|0.20|0.5807|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          15    mean value:     -563848.0000
+Description of the best-so-far configuration:
+   .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+15   15             562         552        0.1429            1               5 0.4532 0.5893        0.1403      0.0682        8
+
+# 2025-08-29 22:38:10 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+15             562         552        0.1429            1               5 0.4532 0.5893        0.1403      0.0682
+23             583         454        0.1849            2               5 0.3728 0.5136        0.0524      0.0762
+22             524         434        0.1305            1               5 0.4798 0.7264        0.1439      0.0218
+28             406         344        0.1249            1               5 0.4600 0.6706        0.0967      0.0748
+24             501         408        0.1402            4               5 0.4288 0.8038        0.1068      0.0111
+# Total CPU user time: 5032.527, CPU sys time: 39.507, Wall-clock time: 5163.451
+# 2025-08-29 22:38:10 CEST: Starting post-selection:
+# Configurations selected: 15, 23, 22, 28, 24, 14, 17, 1, 8, 3, 2.
+# Pending instances: 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 4.
+# 2025-08-29 22:38:11 CEST: seed: 232062620
+# Configurations: 11
+# Available experiments: 22
+# minSurvival: 1
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|.|          5|         11|         23|    -1879096.000|          0|00:00:00|   NA|  NA|    NA|
+|.|          3|         11|         23|    -1114559.500|          0|00:00:00|+0.41|0.70|0.0025|
+|x|          7|         11|         15|    -849044.3333|          4|00:00:47|+0.37|0.58|0.0084|
+|.|          4|         11|         15|    -840431.2500|          4|00:00:00|+0.27|0.45|0.0077|
+|x|          8|         11|         15|    -688654.0000|          8|00:01:29|+0.39|0.51|0.0061|
+|.|          2|         11|         15|    -577563.3333|          8|00:00:00|+0.40|0.50|0.0052|
+|x|          6|         11|         15|    -528520.5714|          9|00:00:02|+0.43|0.51|0.0152|
+|.|          1|         11|         15|    -563848.0000|          9|00:00:00|+0.48|0.55|0.0131|
+|-|          9|          3|         15|    -504761.1111|         20|00:03:16|+0.14|0.23|0.4799|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          15    mean value:     -504761.1111
+Description of the best-so-far configuration:
+   .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+15   15             562         552        0.1429            1               5 0.4532 0.5893        0.1403      0.0682        8
+
+# 2025-08-29 22:43:47 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+15             562         552        0.1429            1               5 0.4532 0.5893        0.1403      0.0682
+23             583         454        0.1849            2               5 0.3728 0.5136        0.0524      0.0762
+22             524         434        0.1305            1               5 0.4798 0.7264        0.1439      0.0218
+# Total CPU user time: 5365.751, CPU sys time: 40.957, Wall-clock time: 5499.709
+NULL
+> 
+> 
+> 
+> source("start.r")
+==> Pokrećem GA + Q-learning verziju
+# 2025-08-29 23:04:18 CEST: Reading parameter file '/Volumes/RemovableDisk/misanu/qlearning-genetic-algorithms/tuning/parameters-qLearning.txt'.
+# 2025-08-29 23:04:19 CEST: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 3
+# minNbSurvival: 5
+# nbParameters: 9
+# seed: 458759964
+# confidence level: 0.95
+# budget: 200
+# mu: 5
+# deterministic: FALSE
+
+# 2025-08-29 23:04:19 CEST: Iteration 1 of 3
+# experimentsUsed: 0
+# remainingBudget: 200
+# currentBudget: 66
+# nbConfigurations: 11
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          1|         11|          3|    -81521.00000|         11|00:03:50|   NA|  NA|    NA|
+|x|          2|         11|          3|    -51815.50000|         22|00:01:20|+0.88|0.94|0.0724|
+|x|          3|         11|          3|    -42359.00000|         33|00:01:19|+0.79|0.86|0.3313|
+|x|          4|         11|          3|    -500916.0000|         44|00:08:41|+0.81|0.85|0.2532|
+|-|          5|          2|          3|    -407740.2000|         55|00:02:06|+0.75|0.80|0.1000|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:           3    mean value:     -407740.2000
+Description of the best-so-far configuration:
+  .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+3    3             328         560        0.1845            1               4 0.3993 0.6151        0.2799      0.0178       NA
+
+# 2025-08-29 23:21:36 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+3              328         560        0.1845            1               4 0.3993 0.6151        0.2799      0.0178
+11             172         526        0.1489            3               3 0.3712 0.6401        0.3080      0.0121
+# 2025-08-29 23:21:36 CEST: Iteration 2 of 3
+# experimentsUsed: 55
+# remainingBudget: 145
+# currentBudget: 72
+# nbConfigurations: 11
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          6|         11|         15|    -2184987.000|         11|00:12:49|   NA|  NA|    NA|
+|x|          2|         11|         15|    -1103548.500|         20|00:01:32|+0.65|0.82|0.1692|
+|x|          1|         11|         18|    -761924.6667|         29|00:04:27|+0.56|0.70|0.1131|
+|x|          3|         11|         18|    -577305.0000|         38|00:01:30|+0.50|0.63|0.1248|
+|-|          5|          7|         18|    -468853.2000|         47|00:02:27|+0.04|0.23|0.7067|
+|=|          4|          7|         18|    -703248.0000|         52|00:07:42|+0.10|0.25|0.6696|
+|=|          7|          7|         18|    -634349.8571|         59|00:01:47|+0.07|0.20|0.6752|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          18    mean value:     -634349.8571
+Description of the best-so-far configuration:
+   .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+18   18             512         426        0.1334            3               5 0.3338 0.5549        0.1963      0.0341        3
+
+# 2025-08-29 23:53:53 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+18             512         426        0.1334            3               5 0.3338 0.5549        0.1963      0.0341
+3              328         560        0.1845            1               4 0.3993 0.6151        0.2799      0.0178
+20             404         571        0.1514            1               5 0.2457 0.7000        0.3975      0.0532
+15             526         550        0.1394            4               3 0.4034 0.6174        0.2115      0.0533
+19             378         493        0.0779            3               5 0.3359 0.5618        0.3308      0.0415
+# 2025-08-29 23:53:53 CEST: Iteration 3 of 3
+# experimentsUsed: 114
+# remainingBudget: 86
+# currentBudget: 86
+# nbConfigurations: 15
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          8|         15|         18|    -350254.0000|         15|00:03:53|   NA|  NA|    NA|
+|x|          1|         15|         18|    -215902.5000|         25|00:03:25|+0.67|0.84|0.2152|
+|x|          2|         15|         18|    -151305.0000|         35|00:01:10|+0.65|0.77|0.1433|
+|x|          4|         15|         18|    -582284.2500|         45|00:07:48|+0.66|0.75|0.1007|
+|-|          3|          8|         18|    -470516.6000|         55|00:01:10|+0.25|0.40|0.5543|
+|-|          5|          7|         18|    -397938.1667|         58|00:01:01|+0.30|0.42|0.5322|
+|=|          6|          7|         18|    -652820.2857|         60|00:03:00|+0.06|0.20|0.6973|
+|=|          7|          7|         18|    -598837.8750|         62|00:00:26|+0.07|0.18|0.6811|
+|=|          9|          7|         18|    -541300.6667|         69|00:04:30|+0.05|0.15|0.7327|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:          18    mean value:     -541300.6667
+Description of the best-so-far configuration:
+   .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+18   18             512         426        0.1334            3               5 0.3338 0.5549        0.1963      0.0341        3
+
+# 2025-08-30 00:20:20 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+18             512         426        0.1334            3               5 0.3338 0.5549        0.1963      0.0341
+3              328         560        0.1845            1               4 0.3993 0.6151        0.2799      0.0178
+24             447         539        0.1208            2               4 0.3254 0.6313        0.1469      0.0193
+22             463         440        0.1252            1               5 0.1685 0.5545        0.2186      0.0727
+20             404         571        0.1514            1               5 0.2457 0.7000        0.3975      0.0532
+# Total CPU user time: 4523.17, CPU sys time: 18.56, Wall-clock time: 4561.869
+# 2025-08-30 00:20:21 CEST: Starting post-selection:
+# Configurations selected: 18, 3, 24, 22, 20, 15, 19, 11, 1.
+# Pending instances: 1, 1, 1, 1, 1, 1, 1, 3, 5.
+# 2025-08-30 00:20:21 CEST: seed: 458759964
+# Configurations: 9
+# Available experiments: 17
+# minSurvival: 1
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|.|          3|          9|          1|    -23446.00000|          0|00:00:00|   NA|  NA|    NA|
+|x|          6|          9|         15|    -1104216.500|          1|00:01:19|+0.00|0.50|0.4444|
+|.|          1|          9|         15|    -762720.6667|          1|00:00:00|-0.17|0.22|0.5383|
+|x|          8|          9|         18|    -659341.0000|          3|00:00:26|-0.07|0.20|0.6157|
+|.|          5|          9|         18|    -534482.0000|          3|00:00:00|+0.01|0.21|0.5851|
+|x|          7|          9|         18|    -482228.5000|          4|00:00:11|+0.07|0.23|0.5549|
+|.|          2|          9|         18|    -416497.2857|          4|00:00:00|+0.11|0.24|0.5614|
+|.|          4|          9|         18|    -598837.8750|          4|00:00:00|+0.08|0.20|0.6397|
+|=|          9|          9|         18|    -541300.6667|          6|00:00:49|+0.08|0.18|0.6310|
+|=|         10|          9|          3|    -505626.2000|         15|00:12:18|+0.10|0.19|0.6572|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:           3    mean value:     -505626.2000
+Description of the best-so-far configuration:
+  .ID. population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end .PARENT.
+3    3             328         560        0.1845            1               4 0.3993 0.6151        0.2799      0.0178       NA
+
+# 2025-08-30 00:35:27 CEST: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   population_size generations mutation_rate elitism_size tournament_size  alpha  gamma epsilon_start epsilon_end
+3              328         560        0.1845            1               4 0.3993 0.6151        0.2799      0.0178
+24             447         539        0.1208            2               4 0.3254 0.6313        0.1469      0.0193
+18             512         426        0.1334            3               5 0.3338 0.5549        0.1963      0.0341
+22             463         440        0.1252            1               5 0.1685 0.5545        0.2186      0.0727
+20             404         571        0.1514            1               5 0.2457 0.7000        0.3975      0.0532
+# Total CPU user time: 5425.026, CPU sys time: 20.781, Wall-clock time: 5467.925
+NULL
+> 
