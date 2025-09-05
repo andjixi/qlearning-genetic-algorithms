@@ -124,41 +124,41 @@ def genetic_algorithm_qlearning(problem, population_size=50, generations=50, tou
 
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--instance', type=str, required=True)
-    parser.add_argument('--seed', type=int, required=True)
-    parser.add_argument('--population_size', type=int, default=50)
-    parser.add_argument('--generations', type=int, default=50)
-    parser.add_argument('--mutation_rate', type=float, default=0.05)
-    parser.add_argument('--elitism_size', type=int, default=2)
-    parser.add_argument('--tournament_size', type=int, default=3)
-    parser.add_argument('--alpha', type=float, default=0.2)
-    parser.add_argument('--gamma', type=float, default=0.9)
-    parser.add_argument('--epsilon_start', type=float, default=0.2)
-    parser.add_argument('--epsilon_end', type=float, default=0.02)
-    args = parser.parse_args()
+# def main():
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument('--instance', type=str, required=True)
+#     parser.add_argument('--seed', type=int, required=True)
+#     parser.add_argument('--population_size', type=int, default=50)
+#     parser.add_argument('--generations', type=int, default=50)
+#     parser.add_argument('--mutation_rate', type=float, default=0.05)
+#     parser.add_argument('--elitism_size', type=int, default=2)
+#     parser.add_argument('--tournament_size', type=int, default=3)
+#     parser.add_argument('--alpha', type=float, default=0.2)
+#     parser.add_argument('--gamma', type=float, default=0.9)
+#     parser.add_argument('--epsilon_start', type=float, default=0.2)
+#     parser.add_argument('--epsilon_end', type=float, default=0.02)
+#     args = parser.parse_args()
 
-    random.seed(args.seed)
-    weights, values, capacity = load_kplib_instance(args.instance)
-    problem = KnapsackProblem(weights, values, capacity)
+#     random.seed(args.seed)
+#     weights, values, capacity = load_kplib_instance(args.instance)
+#     problem = KnapsackProblem(weights, values, capacity)
 
-    best = genetic_algorithm_qlearning(
-        problem,
-        population_size=args.population_size,
-        generations=args.generations,
-        tournament_size=args.tournament_size,
-        mutation_rate=args.mutation_rate,
-        elitism_size=args.elitism_size,
-        alpha=args.alpha,
-        gamma=args.gamma,
-        epsilon_start=args.epsilon_start,
-        epsilon_end=args.epsilon_end
-    )
+#     best = genetic_algorithm_qlearning(
+#         problem,
+#         population_size=args.population_size,
+#         generations=args.generations,
+#         tournament_size=args.tournament_size,
+#         mutation_rate=args.mutation_rate,
+#         elitism_size=args.elitism_size,
+#         alpha=args.alpha,
+#         gamma=args.gamma,
+#         epsilon_start=args.epsilon_start,
+#         epsilon_end=args.epsilon_end
+#     )
 
-    print(best.fitness)
+#     print(best.fitness)
 
 
-if __name__ == "__main__":
-    main()  
+# if __name__ == "__main__":
+#     main()  
 
