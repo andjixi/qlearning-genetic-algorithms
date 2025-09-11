@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_csv("src/qlearning_tuning_results.csv")
+df = pd.read_csv("src/results-qLearning.csv")
 
 # Drop rows where 'best_fitness' is NaN
 df_cleaned = df.dropna(subset=['best_fitness'])
